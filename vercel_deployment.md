@@ -33,7 +33,7 @@ The FastAPI backend runs on Python. You can deploy it to **Render** or **Heroku*
 3. **Start Command**:
    - On Render or Heroku, the deployment command is already defined in the `Procfile` at the root:
      ```bash
-     web: uvicorn server.bootstrap:api_service --host 0.0.0.0 --port $PORT
+     web: uvicorn backend.bootstrap:api_service --host 0.0.0.0 --port $PORT
      ```
 4. **Environment Variables**:
    - If you want to use Cloudinary for uploads, add these environment variables in your backend hosting service settings:

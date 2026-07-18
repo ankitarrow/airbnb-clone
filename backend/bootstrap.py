@@ -7,15 +7,15 @@ from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import RedirectResponse
 
-from server.storage import OrmBase, DB_SessionFactory, db_engine, update_db_schema
-from server.populator import fill_sample_records
-from server.endpoints.session import session_router
-from server.endpoints.reservations import reservation_router
-from server.endpoints.bookmarks import bookmark_router
-from server.endpoints.providers import provider_router
-from server.endpoints.properties import property_router
-from server.endpoints.chats import chat_router
-from server.endpoints.feedback import feedback_router
+from backend.storage import OrmBase, DB_SessionFactory, db_engine, update_db_schema
+from backend.populator import fill_sample_records
+from backend.endpoints.session import session_router
+from backend.endpoints.reservations import reservation_router
+from backend.endpoints.bookmarks import bookmark_router
+from backend.endpoints.providers import provider_router
+from backend.endpoints.properties import property_router
+from backend.endpoints.chats import chat_router
+from backend.endpoints.feedback import feedback_router
 
 OrmBase.metadata.create_all(bind=db_engine)
 update_db_schema()

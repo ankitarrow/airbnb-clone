@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from server.storage import acquire_db_session
-from server.injectors import fetch_authenticated_user
-from server.entities import DBUser
-from server.payloads import PayloadDemoLoginRequest, PayloadLoginRequest, PayloadRegisterRequest, PayloadUserOut
-from server.crypto import generate_secure_hash, validate_password_hash
+from backend.storage import acquire_db_session
+from backend.injectors import fetch_authenticated_user
+from backend.entities import DBUser
+from backend.payloads import PayloadDemoLoginRequest, PayloadLoginRequest, PayloadRegisterRequest, PayloadUserOut
+from backend.crypto import generate_secure_hash, validate_password_hash
 
 session_router = APIRouter(prefix="/auth", tags=["auth"])
 

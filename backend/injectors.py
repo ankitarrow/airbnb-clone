@@ -1,8 +1,8 @@
 from fastapi import Depends, Header, HTTPException
 from sqlalchemy.orm import Session
 
-from server.storage import acquire_db_session
-from server.entities import DBUser
+from backend.storage import acquire_db_session
+from backend.entities import DBUser
 
 def fetch_authenticated_user(
     user_header_id: int | None = Header(None, alias="X-User-Id"),

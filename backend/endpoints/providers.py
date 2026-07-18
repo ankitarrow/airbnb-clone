@@ -1,13 +1,13 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session, joinedload
 
-from server.storage import acquire_db_session
-from server.injectors import fetch_authenticated_user
-from server.entities import DBBooking, DBListing, DBListingPhoto, DBReview, DBUser
-from server.helpers import format_host_review_output
-from server.payloads import PayloadBookingOut, PayloadHostReviewOut, PayloadListingCardOut
-from server.endpoints.reservations import _format_booking_output
-from server.endpoints.properties import format_listing_card
+from backend.storage import acquire_db_session
+from backend.injectors import fetch_authenticated_user
+from backend.entities import DBBooking, DBListing, DBListingPhoto, DBReview, DBUser
+from backend.helpers import format_host_review_output
+from backend.payloads import PayloadBookingOut, PayloadHostReviewOut, PayloadListingCardOut
+from backend.endpoints.reservations import _format_booking_output
+from backend.endpoints.properties import format_listing_card
 
 provider_router = APIRouter(prefix="/hosts", tags=["hosts"])
 

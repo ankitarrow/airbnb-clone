@@ -7,8 +7,8 @@ from datetime import date, timedelta
 from sqlalchemy import inspect, text
 from sqlalchemy.orm import Session
 
-from server.storage import db_engine
-from server.entities import (
+from backend.storage import db_engine
+from backend.entities import (
     DBAmenity,
     DBBooking,
     DBConversation,

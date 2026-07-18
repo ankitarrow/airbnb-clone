@@ -1,8 +1,8 @@
 from sqlalchemy import func
 from sqlalchemy.orm import Session
 
-from server.entities import DBReview, DBReviewLike, DBUser
-from server.payloads import PayloadHostReviewOut, PayloadReviewOut
+from backend.entities import DBReview, DBReviewLike, DBUser
+from backend.payloads import PayloadHostReviewOut, PayloadReviewOut
 
 
 def compute_review_likes(db_session: Session, target_review_id: int) -> int:

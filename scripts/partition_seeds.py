@@ -55,7 +55,7 @@ populator_file_content = populator_file_content.replace(
 verify_table_columns_code = '''
 from sqlalchemy import inspect, text
 
-from server.storage import db_engine
+from backend.storage import db_engine
 
 
 def verify_table_columns() -> None:
@@ -72,8 +72,8 @@ def verify_table_columns() -> None:
 
 if "def verify_table_columns" not in populator_file_content:
     populator_file_content = populator_file_content.replace(
-        "from sqlalchemy.orm import Session\n\nfrom server.entities import",
-        "from sqlalchemy import inspect, text\nfrom sqlalchemy.orm import Session\n\nfrom server.storage import db_engine\nfrom server.entities import",
+        "from sqlalchemy.orm import Session\n\nfrom backend.entities import",
+        "from sqlalchemy import inspect, text\nfrom sqlalchemy.orm import Session\n\nfrom backend.storage import db_engine\nfrom backend.entities import",
     )
     populator_file_content = populator_file_content.replace(
         "def build_listings_catalog()",

@@ -5,11 +5,11 @@ from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy import func, or_
 from sqlalchemy.orm import Session, joinedload
 
-from server.storage import acquire_db_session
-from server.injectors import fetch_authenticated_user, fetch_optional_user
-from server.entities import DBAmenity, DBBooking, DBConversation, DBFavorite, DBListing, DBListingAmenity, DBListingPhoto, DBMessage, DBReview, DBUser
-from server.helpers import format_review_output
-from server.payloads import (
+from backend.storage import acquire_db_session
+from backend.injectors import fetch_authenticated_user, fetch_optional_user
+from backend.entities import DBAmenity, DBBooking, DBConversation, DBFavorite, DBListing, DBListingAmenity, DBListingPhoto, DBMessage, DBReview, DBUser
+from backend.helpers import format_review_output
+from backend.payloads import (
     PayloadAvailabilityRange,
     PayloadListingCardOut,
     PayloadListingCreate,

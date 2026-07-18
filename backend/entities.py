@@ -13,7 +13,7 @@ from sqlalchemy import (
 )
 from sqlalchemy.orm import relationship
 
-from server.storage import OrmBase
+from backend.storage import OrmBase
 
 
 class DBUser(OrmBase):

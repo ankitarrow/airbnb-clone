@@ -4,10 +4,10 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import func, or_
 from sqlalchemy.orm import Session, joinedload
 
-from server.storage import acquire_db_session
-from server.injectors import fetch_authenticated_user
-from server.entities import DBConversation, DBListing, DBListingPhoto, DBMessage, DBUser
-from server.payloads import PayloadConversationCreate, PayloadConversationOut, PayloadHostConversationCreate, PayloadMessageCreate, PayloadMessageOut
+from backend.storage import acquire_db_session
+from backend.injectors import fetch_authenticated_user
+from backend.entities import DBConversation, DBListing, DBListingPhoto, DBMessage, DBUser
+from backend.payloads import PayloadConversationCreate, PayloadConversationOut, PayloadHostConversationCreate, PayloadMessageCreate, PayloadMessageOut
 
 chat_router = APIRouter(prefix="/messages", tags=["messages"])
 

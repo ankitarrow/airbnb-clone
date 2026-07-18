@@ -4,11 +4,11 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy import or_
 from sqlalchemy.orm import Session, joinedload
 
-from server.storage import acquire_db_session
-from server.injectors import fetch_authenticated_user, fetch_optional_user
-from server.entities import DBBooking, DBListing, DBReview, DBReviewLike, DBUser
-from server.helpers import format_host_review_output, compute_review_likes, format_review_output
-from server.payloads import (
+from backend.storage import acquire_db_session
+from backend.injectors import fetch_authenticated_user, fetch_optional_user
+from backend.entities import DBBooking, DBListing, DBReview, DBReviewLike, DBUser
+from backend.helpers import format_host_review_output, compute_review_likes, format_review_output
+from backend.payloads import (
     PayloadGuestReviewOut,
     PayloadHostReviewOut,
     PayloadReviewCreate,

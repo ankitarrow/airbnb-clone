@@ -3,10 +3,10 @@ from datetime import date, datetime, timedelta
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session, joinedload
 
-from server.storage import acquire_db_session
-from server.injectors import fetch_authenticated_user
-from server.entities import DBBooking, DBListing, DBListingPhoto, DBReview, DBUser
-from server.payloads import PayloadBookingCreate, PayloadBookingOut
+from backend.storage import acquire_db_session
+from backend.injectors import fetch_authenticated_user
+from backend.entities import DBBooking, DBListing, DBListingPhoto, DBReview, DBUser
+from backend.payloads import PayloadBookingCreate, PayloadBookingOut
 
 reservation_router = APIRouter(prefix="/bookings", tags=["bookings"])
 

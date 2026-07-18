@@ -1,11 +1,11 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from server.storage import acquire_db_session
-from server.injectors import fetch_authenticated_user
-from server.entities import DBFavorite, DBListing, DBUser
-from server.payloads import PayloadListingCardOut
-from server.endpoints.properties import format_listing_card
+from backend.storage import acquire_db_session
+from backend.injectors import fetch_authenticated_user
+from backend.entities import DBFavorite, DBListing, DBUser
+from backend.payloads import PayloadListingCardOut
+from backend.endpoints.properties import format_listing_card
 
 bookmark_router = APIRouter(prefix="/favorites", tags=["favorites"])
 
