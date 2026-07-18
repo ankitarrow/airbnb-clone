@@ -4,4 +4,4 @@ sqlalchemy>=2.0.36
 pydantic>=2.10.0
 python-dateutil>=2.9.0
 python-multipart>=0.0.32
-
+requests>=2.31.0
