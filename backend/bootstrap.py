@@ -5,7 +5,7 @@ load_dotenv(override=True)
 
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
+from fastapi.responses import RedirectResponse, JSONResponse
 
 from backend.storage import OrmBase, DB_SessionFactory, db_engine, update_db_schema
 from backend.populator import fill_sample_records
@@ -27,6 +27,9 @@ allowed_origins = [o.strip() for o in os.getenv(
     "http://localhost:3000,http://127.0.0.1:3000",
 ).split(",") if o.strip()]
 
+# Add user's Vercel deployment URL explicitly
+allowed_origins.append("https://airbnb-clone-kappa-neon.vercel.app")
+
 api_service.add_middleware(
     CORSMiddleware,
     allow_origins=allowed_origins,
@@ -35,6 +38,33 @@ api_service.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Custom exception handlers to guarantee CORS headers are present on errors
+@api_service.exception_handler(HTTPException)
+def http_exception_handler(request, exc):
+    origin = request.headers.get("origin")
+    headers = {}
+    if origin:
+        headers["Access-Control-Allow-Origin"] = origin
+        headers["Access-Control-Allow-Credentials"] = "true"
+    return JSONResponse(
+        status_code=exc.status_code,
+        content={"detail": exc.detail},
+        headers=headers,
+    )
+
+@api_service.exception_handler(Exception)
+def general_exception_handler(request, exc):
+    origin = request.headers.get("origin")
+    headers = {}
+    if origin:
+        headers["Access-Control-Allow-Origin"] = origin
+        headers["Access-Control-Allow-Credentials"] = "true"
+    return JSONResponse(
+        status_code=500,
+        content={"detail": f"Internal Server Error: {str(exc)}"},
+        headers=headers,
+    )
 
 api_service.include_router(session_router)
 api_service.include_router(property_router)
